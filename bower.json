@@ -1,0 +1,22 @@
+{
+  "name": "abcapp",
+  "version": "0.0.0",
+  "authors": [
+    "guoda <@wonderland.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "1.4.x",  	
+    "angular": "latest",
+    "bootstrap": "latest",
+    "jquery": "latest",
+	"jquery-ui": "latest"
+  }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html data-ng-app="abcapp" ng-init="initialized=true">
+<head>
+<title>AbcApp</title>
+	<script type="text/javascript" src="static-resources/bower-components/angular/angular.js"></script>
+	<script type="text/javascript" src="static-resources/bower-components/angular-route/angular-route.js"></script>
+	<link href="static-resources/bower-components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+	<link href="static-resources/bower-components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+	<script type="text/javascript" src="static-resources/js/app.js"></script>
+	<meta charset="utf-8">
+	<base href="/abcapp/" />
+</head>
+<body>
+	<div class="loader" ng-hide="initialized">
+		Loading...
+	</div>
+
+	<nav class="navbar navbar-inverse ng-hide" role="navigation" ng-show="initialized">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="home">Logo will be here</a>
+			</div>
+
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="about">About</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<li class="dropdown" ng-show="user">
+						<a href="" class="dropdown-toggle" data-toggle="dropdown">{{user.name}} <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="" ng-click="logout()"><span class="fa fa-sign-out"></span> Logout</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	
+	
+<div class="container">
+
+<div ng-view></div>
+	
+</div>
+<div class="container ng-hide" ng-show="initialized">
+<div class="alert alert-danger" ng-show="error">{{error}}</div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>%d{HH:mm:ss} %-5level %logger{36} - %msg%n</Pattern>
+		</encoder>
+<!-- 		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>TRACE</level>
+		</filter> -->
+	</appender>
+
+  	<appender name="dailyRollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>rest-demo.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+		 			<FileNamePattern>rest-demo.%d{yyyy-MM-dd}.log</FileNamePattern>
+			<maxHistory>1</maxHistory>			
+		</rollingPolicy>
+
+		<encoder>
+			<Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg %n</Pattern>
+		</encoder> 	    
+  	</appender>
+<!--   	<appender name="minuteRollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender"> -->
+<!-- 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy"> -->
+<!-- 		    rollover every minute -->
+<!-- 			<FileNamePattern>c:/tmp/minutes/rest-demo-minute.%d{yyyy-MM-dd_HH-mm}.log</FileNamePattern> -->
+
+			<!-- keep 30 minutes' worth of history -->
+<!-- 			<maxHistory>30</maxHistory>			 -->
+<!-- 		</rollingPolicy> -->
+
+<!-- 		<encoder> -->
+<!-- 			<Pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</Pattern> -->
+<!-- 		</encoder> 	     -->
+<!--   	</appender> --> -->
+  	  	
+  	
+	<logger name="com.abcd" level="DEBUG" ></logger>
+	<logger name="org.springframework" level = "WARN" ></logger>
+  	<logger name="org.springframework.web.filter.CommonsRequestLoggingFilter" level="WARN"/>
+  	<logger name="org.hibernate" level="WARN"></logger>
+
+	<root>
+		<level value="TRACE" />
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="dailyRollingFileAppender" />
+	</root>
+</configuration>
